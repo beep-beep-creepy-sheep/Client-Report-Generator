@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 from email.utils import parsedate_to_datetime
 from html import unescape
 from typing import Iterable
@@ -58,6 +59,17 @@ def citations_table(items: list[ResearchItem]) -> str:
         for index, item in enumerate(items, start=1)
     )
     return f"| Ref | Title | Source | Date | Category | URL |\n|---:|---|---|---|---|---|\n{rows}"
+
+
+def references_section(items: list[ResearchItem]) -> str:
+    if not items:
+        return ""
+    accessed = date.today().isoformat()
+    rows = [
+        f"{index}. {item.source}, \"{item.title},\" {item.published or 'n.d.'}. Accessed {accessed}. [Source]({item.url})."
+        for index, item in enumerate(items, start=1)
+    ]
+    return "\n".join(rows)
 
 
 def _clean_urls(urls: Iterable[str]) -> list[str]:

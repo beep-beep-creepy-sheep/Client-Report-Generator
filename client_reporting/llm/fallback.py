@@ -72,9 +72,13 @@ def _institutional_snapshot_report(metrics: SnapshotPortfolioMetrics, research_i
     research = _research_context(research_items)
     evidence = _evidence_synthesis(metrics, research_items)
     implications = _portfolio_implications(metrics, research_items, "institutional")
+    monitoring = _monitoring_agenda(metrics, research_items)
     return f"""
 ## Performance Summary
-As of {metrics.as_of_date}, the portfolio market value was {metrics.total_market_value:,.0f} across {metrics.holdings_count} holdings. Total unrealized gain/loss was {metrics.total_gain_loss:,.0f}, equal to {pct(metrics.total_gain_loss_pct)} on book cost.
+As of {metrics.as_of_date}, the portfolio market value was {metrics.total_market_value:,.0f} across {metrics.holdings_count} holdings. Total unrealized gain/loss was {metrics.total_gain_loss:,.0f}, equal to {pct(metrics.total_gain_loss_pct)} on book cost. The central conclusion is that client outcomes are being driven less by single-name equity risk and more by pooled-fund allocation, liquidity positioning, and concentration discipline.
+
+## Methodology and Data Basis
+This report uses the uploaded valuation snapshot as the primary portfolio record. Market value, book cost, unrealized gain/loss, asset type, and identifiers are treated as portfolio facts; public research sources are treated as contextual evidence and cited in brackets. ISIN and SEDOL are used for holding identification, not paid fund-data enrichment.
 
 ## Key Drivers
 {drivers}
@@ -92,8 +96,11 @@ Fund, ETF, and property fund exposure represented {pct(metrics.fund_weight)} of 
 ## Portfolio Implications
 {implications}
 
+## Monitoring Agenda
+{monitoring}
+
 ## Outlook Commentary
-The next review should focus on the holdings that drive the largest gain/loss impact and on liquidity terms for any property fund exposure. Because this report is based on the uploaded snapshot, ISIN and SEDOL are used for identification rather than paid data enrichment.
+The portfolio review should remain evidence-led: changes to allocation should be justified by the interaction between measured portfolio exposures and the cited research record, not by market narrative alone. Because this report is based on the uploaded snapshot, ISIN and SEDOL are used for identification rather than paid data enrichment.
 """.strip()
 
 
@@ -107,9 +114,13 @@ def _retail_snapshot_report(metrics: SnapshotPortfolioMetrics, research_items: l
     research = _research_context(research_items)
     evidence = _evidence_synthesis(metrics, research_items)
     implications = _portfolio_implications(metrics, research_items, "retail")
+    monitoring = _monitoring_agenda(metrics, research_items)
     return f"""
 ## Performance Summary
 On {metrics.as_of_date}, the portfolio was valued at {metrics.total_market_value:,.0f}. Compared with book cost, the uploaded holdings show total gain/loss of {metrics.total_gain_loss:,.0f}, or {pct(metrics.total_gain_loss_pct)}.
+
+## Methodology and Data Basis
+This report starts with the uploaded portfolio snapshot and then uses public research sources as supporting evidence. The analysis links the client's actual holding weights and gain/loss figures to the research evidence cited in brackets.
 
 ## Key Drivers
 The largest holding is {largest.name}, representing {pct(largest.weight)} of the portfolio. {best_text} {worst_text}
@@ -127,6 +138,9 @@ Most of the analysis comes from fund and cash-like holdings rather than only lis
 ## Portfolio Implications
 {implications}
 
+## Monitoring Agenda
+{monitoring}
+
 ## Outlook Commentary
 The next client discussion should start with the actual gain/loss figures in the uploaded file, then review whether the largest positions still match the client's liquidity needs and risk comfort. For funds without free daily price history, the report should rely on the platform valuation and holding-level gain/loss instead of paid data.
 """.strip()
@@ -138,7 +152,7 @@ def _research_context(items: list[ResearchItem]) -> str:
     rows: list[str] = []
     for index, item in enumerate(items, start=1):
         ideas = " ".join(item.ideas) if item.ideas else item.summary
-        rows.append(f"- [{index}] {item.source} / {item.category}: {item.title}. Extracted idea: {ideas}")
+        rows.append(f"- [{index}] {item.source} / {item.category}: {item.title}. Core evidence: {ideas}")
     return "\n".join(rows)
 
 
@@ -170,3 +184,14 @@ def _evidence_synthesis(metrics: SnapshotPortfolioMetrics, items: list[ResearchI
         f"{pct(metrics.direct_equity_weight)} in direct equities, and {pct(metrics.concentration_top10)} in the top ten holdings. "
         f"That means macro and policy ideas primarily affect liquidity, yield, and fund allocation decisions, while sector or industry ideas mainly affect direct equity and specialist fund review."
     )
+
+
+def _monitoring_agenda(metrics: SnapshotPortfolioMetrics, items: list[ResearchItem]) -> str:
+    references = ", ".join(f"[{index}]" for index, _ in enumerate(items, start=1)) or "portfolio snapshot"
+    agenda = [
+        f"Reconcile the largest gain/loss contributors against the {pct(metrics.concentration_top10)} top-ten concentration before approving any rebalance.",
+        f"Review MMF/cash-like exposure of {pct(metrics.mmf_weight)} against the policy and liquidity evidence in {references}.",
+        f"Review property fund exposure of {pct(metrics.property_fund_weight)} for liquidity terms, dealing frequency, and valuation lag.",
+        f"Document whether the {pct(metrics.fund_weight)} pooled-fund allocation remains aligned with the client's investment horizon and reporting objective.",
+    ]
+    return "\n".join(f"- {item}" for item in agenda)

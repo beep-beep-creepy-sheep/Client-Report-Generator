@@ -2,7 +2,7 @@ from client_reporting.app.report_builder import ReportBuilder, SnapshotReportReq
 from client_reporting.analytics.snapshot import compute_snapshot_metrics
 from client_reporting.data.portfolio_upload import normalize_portfolio_frame
 from client_reporting.research.auto_sources import default_research_urls
-from client_reporting.research.web_sources import ResearchItem, citations_table, extract_research_ideas, infer_research_category
+from client_reporting.research.web_sources import ResearchItem, citations_table, extract_research_ideas, infer_research_category, references_section
 from client_reporting.formatting.quality import validate_report
 
 import pandas as pd
@@ -64,10 +64,31 @@ def test_snapshot_report_includes_research_context_and_implications():
     )
 
     assert "## Research Context" in result.report
+    assert "## Methodology and Data Basis" in result.report
     assert "## Evidence Synthesis" in result.report
     assert "## Portfolio Implications" in result.report
-    assert "## Research Sources" in result.report
+    assert "## References" in result.report
+    assert "## Appendix A: Portfolio Metrics" in result.report
     assert "[1]" in result.report
+
+
+def test_references_section_uses_professional_endnotes_not_table():
+    items = [
+        ResearchItem(
+            title="Policy update",
+            url="https://example.com/policy",
+            source="example.com",
+            published="2026-06-04",
+            summary="Central bank policy summary.",
+            category="Monetary Policy",
+        )
+    ]
+
+    references = references_section(items)
+
+    assert references.startswith("1. example.com")
+    assert "[Source](https://example.com/policy)" in references
+    assert "| Ref |" not in references
 
 
 def test_extract_research_ideas_scores_investment_relevant_sentences():

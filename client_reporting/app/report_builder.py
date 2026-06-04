@@ -15,7 +15,7 @@ from client_reporting.llm.fallback import build_deterministic_snapshot_report
 from client_reporting.llm.ollama import OllamaClient, OllamaConfig
 from client_reporting.llm.prompts import build_report_prompt, build_snapshot_report_prompt
 from client_reporting.research.auto_sources import default_research_urls
-from client_reporting.research.web_sources import ResearchItem, citations_table, fetch_research_sources
+from client_reporting.research.web_sources import ResearchItem, fetch_research_sources, references_section
 
 
 @dataclass(frozen=True)
@@ -145,20 +145,23 @@ def _compose_snapshot_report(
     research_items: list[ResearchItem] | None = None,
 ) -> str:
     title = "Institutional Portfolio Snapshot Report" if client_type == "institutional" else "Client Portfolio Snapshot Report"
-    citations = citations_table(research_items or [])
-    citation_section = f"\n\n## Research Sources\n{citations}" if citations else ""
+    references = references_section(research_items or [])
+    references_block = f"\n\n## References\n{references}" if references else ""
     return f"""
 # {title}
 
+**Report date:** {metrics.as_of_date}  
+**Analytical basis:** Uploaded portfolio valuation snapshot and cited public research.
+
 {narrative.strip()}
 
-## Portfolio Metrics
+## Appendix A: Portfolio Metrics
 {snapshot_metrics_table(metrics)}
 
-## Asset Allocation
+## Appendix B: Asset Allocation
 {allocation_table(metrics)}
 
-## Top Holdings
+## Appendix C: Top Holdings
 {snapshot_holdings_table(metrics)}
-{citation_section}
+{references_block}
 """.strip()

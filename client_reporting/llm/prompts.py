@@ -65,15 +65,17 @@ def build_snapshot_report_prompt(
     )
     risks = "\n".join(f"- {flag}" for flag in metrics.risk_flags)
     return f"""
-You are writing a professional wealth-management client report from an uploaded daily portfolio snapshot.
+You are writing a publication-quality institutional wealth-management research report from an uploaded daily portfolio snapshot.
 
 Client type: {client_type}
 Tone requirements: {tone}
 
 Strict quality rules:
-- Use the exact section headings: Performance Summary, Key Drivers, Research Context, Evidence Synthesis, Risk Overview, Portfolio Implications, Outlook Commentary.
+- Use the exact section headings: Performance Summary, Methodology and Data Basis, Key Drivers, Research Context, Evidence Synthesis, Risk Overview, Portfolio Implications, Monitoring Agenda, Outlook Commentary.
+- Write in a rigorous research style: thesis, evidence, portfolio linkage, conclusion.
 - Reference actual uploaded snapshot metrics.
 - When using research, cite it with bracketed references such as [1] and do not invent sources.
+- Do not print raw URLs in the narrative. URLs belong only in the References section appended by the system.
 - Treat extracted research ideas as evidence. Connect them explicitly to portfolio exposures, gain/loss, concentration, MMF/cash-like exposure, fund exposure, property fund exposure, and direct equity exposure where relevant.
 - Do not imply that ISIN or SEDOL was used to fetch paid market data.
 - Do not use generic filler, disclaimers, or phrases such as "market conditions" or "various factors".

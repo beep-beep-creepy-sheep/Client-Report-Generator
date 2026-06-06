@@ -2,13 +2,13 @@
 
 Offline-first AI-assisted client reporting engine for wealth management teams. It combines portfolio analytics, fund-heavy holdings upload, public research ingestion, deterministic report generation, optional local Ollama support, quality checks, and exportable client-ready Markdown/PDF reports.
 
-## Live Website
+## Live Demo
 
-Live Website: TODO
+Live Demo: https://site-drab-eight-50.vercel.app
 
-This repository includes a static React/Vite portfolio website under `site/`. It is designed for a public GitHub About/Website URL and can be deployed to Vercel without running the Python backend.
+This repository includes a deployable static React/Vite portfolio website under `site/`. It is designed for a public GitHub About/Website URL and can be deployed to Vercel without running the Python backend.
 
-The public website is a demo only. It does not perform live portfolio analysis and should not receive client data.
+The public website is a static demo only. It does not perform live portfolio analysis and should not receive client data. The full reporting engine runs locally through `python3 web_app/server.py`.
 
 ## Features
 

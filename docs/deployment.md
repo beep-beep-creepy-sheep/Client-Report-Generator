@@ -4,7 +4,9 @@ This repository has two web surfaces.
 
 ## Public Live Website
 
-The public website is a static React/Vite app in `site/`. It is suitable for Vercel and for the GitHub repository About/Website field.
+The public website is an interactive browser-only React/Vite app in `site/`. It is suitable for Vercel and for the GitHub repository About/Website field.
+
+It supports sample loading, CSV upload, editable holdings, client-type selection, portfolio metrics, deterministic report generation, and Markdown download. It does not call the Python backend.
 
 ### Vercel Settings
 
@@ -32,5 +34,5 @@ Use local mode for private portfolio data, uploaded holdings files, public sourc
 
 - Demo only.
 - Not financial advice.
-- The public static site should not receive client data.
+- The public browser-only site should not receive client data.
 - Local mode is preferred for private portfolio data.

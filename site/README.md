@@ -1,8 +1,8 @@
 # AI Client Reporting Engine Website
 
-Static React/Vite portfolio website for the AI Client Reporting Engine.
+Interactive React/Vite trial dashboard for the AI Client Reporting Engine.
 
-This site is designed for public deployment on Vercel. It uses static JSON files under `public/data/` and does not call the Python backend.
+This site is designed for public deployment on Vercel. It runs in the browser and does not call the Python backend. It supports sample loading, CSV upload, editable holdings, client-side metrics, deterministic report generation, and Markdown download.
 
 ## Run Locally
 

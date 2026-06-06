@@ -8,7 +8,7 @@ The project is an offline-first AI-assisted client reporting engine for wealth m
 client_reporting/          Python analytics and reporting engine
 web_app/                   Local Python-backed web workspace
 tests/                     Python test suite
-site/                      Static React/Vite public website
+site/                      Interactive React/Vite public trial dashboard
 docs/                      Deployment and architecture notes
 ```
 
@@ -28,4 +28,4 @@ flowchart LR
 
 ## Public Website Boundary
 
-The `site/` app is a static product showcase. It reads static JSON demo data only and does not require the Python backend.
+The `site/` app is a browser-only public trial dashboard. It supports sample data, CSV upload, editable holdings, client-side metrics, deterministic report generation, and Markdown download. It does not require the Python backend.

@@ -6,9 +6,9 @@ Offline-first AI-assisted client reporting engine for wealth management teams. I
 
 Live Demo: https://site-drab-eight-50.vercel.app
 
-This repository includes a deployable static React/Vite portfolio website under `site/`. It is designed for a public GitHub About/Website URL and can be deployed to Vercel without running the Python backend.
+This repository includes a deployable React/Vite trial workspace under `site/`. It is designed for a public GitHub About/Website URL and runs on Vercel without the Python backend.
 
-The public website is a static demo only. It does not perform live portfolio analysis and should not receive client data. The full reporting engine runs locally through `python3 web_app/server.py`.
+The live demo is browser-only: it supports sample loading, CSV upload, editable holdings, client-type selection, portfolio metrics, deterministic report generation, and Markdown download. Do not enter client data into the public site. The full reporting engine, live web fetching, yfinance, optional Ollama, XLSX upload, and PDF export run locally through `python3 web_app/server.py`.
 
 ## Features
 
@@ -22,7 +22,7 @@ The public website is a static demo only. It does not perform live portfolio ana
 - Dynamic report tone for retail and institutional clients
 - Local Ollama LLM integration with deterministic metric-aware fallback
 - Local Python-backed web app for client type selection, portfolio editing, report preview, and downloads
-- Static React/Vite public website for portfolio presentation and live demo deployment
+- Interactive React/Vite public trial dashboard for Vercel deployment
 - Markdown export and optional PDF export
 
 ## Setup
@@ -63,7 +63,7 @@ cd site
 npm run build
 ```
 
-The React site uses static JSON files under `site/public/data/`. It does not call `/api/analyze` or require the Python server.
+The React site runs in the browser and does not call `/api/analyze` or require the Python server. It uses local demo data plus client-side calculations for the public trial experience.
 
 ## Vercel Deployment
 
@@ -117,7 +117,7 @@ client_reporting/
 └── export/        # markdown and PDF exporters
 
 web_app/           # local Python-backed app and API
-site/              # static React/Vite public website
+site/              # interactive React/Vite public trial dashboard
 docs/              # architecture and deployment notes
 ```
 

@@ -1,0 +1,19 @@
+{
+  "title": "Institutional Portfolio Snapshot Report",
+  "as_of_date": "2026-06-06",
+  "basis": "Uploaded portfolio valuation snapshot and public research context.",
+  "sections": [
+    { "heading": "Performance Summary", "body": "As of 2026-06-06, the portfolio was valued at GBP 1,090,000 across five holdings, with unrealized gain/loss of GBP 63,000, or 6.1% on book cost. The outcome is shaped primarily by allocation architecture: 75.7% of value sits in funds, ETFs, and property funds, 16.1% is held in MMF/cash-like exposure, and 8.3% is held in direct equity." },
+    { "heading": "Allocation Analysis", "body": "The largest allocation block is the Global Equity Fund at 38.5%, followed by the US Equity ETF at 25.7%. This means the portfolio is more dependent on pooled vehicle selection, manager implementation, and asset-class exposure than on a narrow direct-equity thesis." },
+    { "heading": "Attribution Analysis", "body": "Positive unrealized gain/loss is concentrated in Global Equity Fund, US Equity ETF, and Microsoft Corp. The main detractor is UK Commercial Property Fund at GBP -15,000, equivalent to -10.7% on book cost." },
+    { "heading": "Evidence Synthesis", "body": "Public monetary-policy evidence is most relevant through the 16.1% MMF exposure, where yield, reinvestment risk, and liquidity discipline are explicit portfolio questions. Public market-news evidence is relevant to the fund and ETF allocation, but it should be read through measured portfolio weights." },
+    { "heading": "Risk Overview", "body": "The largest holding is 38.5% of the portfolio, so the first governance question is concentration. The second is liquidity: MMF exposure improves cash availability, while property fund exposure introduces potential valuation lag and dealing constraints." },
+    { "heading": "Outlook Commentary", "body": "The next review should reconcile the largest gain/loss contributors with concentration and liquidity constraints before approving any rebalance. Allocation changes should be justified by the interaction between measured portfolio exposures and cited public evidence." }
+  ],
+  "references": [
+    "federalreserve.gov, monetary-policy releases, accessed as a public source.",
+    "bankofengland.co.uk, news and publications, accessed as a public source.",
+    "BBC Business RSS, public business news feed.",
+    "Yahoo Finance News, public market news page."
+  ]
+}

@@ -1,0 +1,7 @@
+[
+  { "title": "Federal Reserve Monetary Policy Releases", "source": "federalreserve.gov", "category": "Monetary Policy", "idea": "Policy-rate evidence helps interpret MMF income, reinvestment risk, and opportunity cost." },
+  { "title": "Bank of England News and Publications", "source": "bankofengland.co.uk", "category": "Monetary Policy", "idea": "UK rate and inflation commentary is relevant for sterling liquidity and property fund assumptions." },
+  { "title": "BBC Business RSS", "source": "feeds.bbci.co.uk/news/business/rss.xml", "category": "Market News", "idea": "Business headlines provide broad market context without paid research APIs." },
+  { "title": "BBC World RSS", "source": "feeds.bbci.co.uk/news/world/rss.xml", "category": "Macro", "idea": "Global news context supports macro and geopolitical sections." },
+  { "title": "Yahoo Finance News", "source": "finance.yahoo.com/news", "category": "Market News", "idea": "Free market news can supplement public institutional sources for equity and ETF context." }
+]

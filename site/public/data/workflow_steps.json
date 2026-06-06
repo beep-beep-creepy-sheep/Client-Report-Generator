@@ -1,0 +1,9 @@
+[
+  { "title": "Upload or Load Holdings", "description": "Accepts XLSX, XLS, or CSV snapshots with market value, book cost, gain/loss, identifiers, asset type, and currency." },
+  { "title": "Normalize Portfolio Data", "description": "Maps common column aliases, standardizes asset types, and derives missing gain/loss fields where possible." },
+  { "title": "Calculate Snapshot Metrics", "description": "Computes market value, book cost, gain/loss, allocation, concentration, key drivers, winners, losers, and risk flags." },
+  { "title": "Pull Public Research", "description": "Reads public webpages and RSS feeds for macro, monetary policy, market news, industry, and fund context." },
+  { "title": "Generate Commentary", "description": "Builds metric-aware institutional or retail commentary using deterministic fallback and optional local Ollama." },
+  { "title": "Run Quality Checks", "description": "Checks for required sections, vague language, missing metric references, and generic AI-style phrasing." },
+  { "title": "Export Report", "description": "Produces client-ready Markdown and optional PDF output from the local Python app." }
+]

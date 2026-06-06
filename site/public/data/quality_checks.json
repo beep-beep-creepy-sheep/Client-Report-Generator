@@ -1,0 +1,7 @@
+[
+  { "name": "Metric anchoring", "status": "Pass", "detail": "Report references gain/loss on cost, pooled vehicle exposure, and concentration." },
+  { "name": "Section completeness", "status": "Pass", "detail": "Performance, methodology, allocation, attribution, evidence synthesis, risk, implications, outlook, appendices, and references are present." },
+  { "name": "Vague language control", "status": "Pass", "detail": "Conditional language is allowed only when tied to a metric, cited evidence, or portfolio exposure." },
+  { "name": "Identifier coverage", "status": "Pass", "detail": "All demo holdings include at least one ISIN, SEDOL, or ticker identifier." },
+  { "name": "Public-source boundary", "status": "Review", "detail": "The public website is static. Live source fetching runs only in the local Python app." }
+]

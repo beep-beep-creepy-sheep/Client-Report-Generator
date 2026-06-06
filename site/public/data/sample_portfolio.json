@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Global Equity Fund",
+    "isin": "IE00B4L5Y983",
+    "sedol": "",
+    "ticker": "",
+    "asset_type": "Fund",
+    "market_value": 420000,
+    "book_cost": 390000,
+    "gain_loss": 30000,
+    "gain_loss_pct": 0.0769,
+    "currency": "GBP",
+    "weight": 0.3853
+  },
+  {
+    "name": "US Equity ETF",
+    "isin": "IE00B3XXRP09",
+    "sedol": "",
+    "ticker": "VTI",
+    "asset_type": "ETF",
+    "market_value": 280000,
+    "book_cost": 250000,
+    "gain_loss": 30000,
+    "gain_loss_pct": 0.12,
+    "currency": "GBP",
+    "weight": 0.2569
+  },
+  {
+    "name": "Sterling Liquidity Fund",
+    "isin": "",
+    "sedol": "B1Y9TB3",
+    "ticker": "",
+    "asset_type": "MMF",
+    "market_value": 175000,
+    "book_cost": 175000,
+    "gain_loss": 0,
+    "gain_loss_pct": 0,
+    "currency": "GBP",
+    "weight": 0.1606
+  },
+  {
+    "name": "UK Commercial Property Fund",
+    "isin": "",
+    "sedol": "B8FMRX8",
+    "ticker": "",
+    "asset_type": "Property Fund",
+    "market_value": 125000,
+    "book_cost": 140000,
+    "gain_loss": -15000,
+    "gain_loss_pct": -0.1071,
+    "currency": "GBP",
+    "weight": 0.1147
+  },
+  {
+    "name": "Microsoft Corp",
+    "isin": "US5949181045",
+    "sedol": "2588173",
+    "ticker": "MSFT",
+    "asset_type": "Direct Equity",
+    "market_value": 90000,
+    "book_cost": 72000,
+    "gain_loss": 18000,
+    "gain_loss_pct": 0.25,
+    "currency": "GBP",
+    "weight": 0.0826
+  }
+]
